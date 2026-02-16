@@ -1,5 +1,9 @@
-# Bedolaga VPN Bot + Cabinet | shadowpro.tech
-# Домен заменить при деплое на другой
+# Bedolaga VPN Bot + Cabinet + Remnawave Panel | shadowpro.tech
+# Caddy автоматически получает SSL от Let's Encrypt
+
+panel.shadowpro.tech {
+    reverse_proxy 127.0.0.1:3000
+}
 
 shadowpro.tech {
     encode gzip zstd
