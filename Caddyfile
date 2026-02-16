@@ -1,0 +1,25 @@
+# Bedolaga VPN Bot + Cabinet | shadowpro.tech
+# Домен заменить при деплое на другой
+
+shadowpro.tech {
+    encode gzip zstd
+
+    handle /yookassa-webhook {
+        reverse_proxy 127.0.0.1:8080
+    }
+
+    handle /webhook {
+        reverse_proxy 127.0.0.1:8080
+    }
+
+    handle /api/* {
+        uri strip_prefix /api
+        reverse_proxy 127.0.0.1:8080
+    }
+
+    handle {
+        root * /srv/cabinet
+        try_files {path} /index.html
+        file_server
+    }
+}
